@@ -1,0 +1,46 @@
+services:
+  glpi-db:
+    image: mariadb:10.11
+    container_name: glpi-db
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_ROOT_PWD}
+      - MARIADB_DATABASE=${GLPI_DB_NAME}
+      - MARIADB_USER=${GLPI_DB_USER}
+      - MARIADB_PASSWORD=${GLPI_DB_PASSWORD}
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - glpi-network
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  glpi:
+    image: glpi/glpi:latest
+    container_name: glpi-app
+    restart: always
+    depends_on:
+      glpi-db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    env_file:
+      - .env
+    volumes:
+      - ./config:/var/glpi/config
+      - ./files:/var/glpi/files
+      - ./marketplace:/var/www/glpi/marketplace
+    networks:
+      - glpi-network
+    healthcheck:
+      test: ["CMD", "php", "-r", "exit((int)(false===@file_get_contents('http://127.0.0.1/')));"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  glpi-network:
+    driver: bridge
