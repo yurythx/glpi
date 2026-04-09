@@ -1,0 +1,13 @@
+# Ignorar pastas de dados persistentes do Docker
+glpi-prod/mysql/
+glpi-prod/config/
+glpi-prod/files/
+glpi-prod/marketplace/
+
+# Ignorar o arquivo .env (contém senhas reais)
+.env
+
+# Ignorar arquivos temporários e de OS
+.DS_Store
+Thumbs.db
+*.log
