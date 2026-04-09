@@ -71,7 +71,7 @@ Para garantir a segurança dos seus dados, faça cópia das pastas `mysql`, `con
 ---
 
 ## ⚙️ Configurações Aplicadas (Best Practices)
-- **GLPI Version**: Fixada em `10.0.14` (evita quebras automáticas).
+- **GLPI Version**: Fixada em `11.0.6` (evita quebras automáticas).
 - **PHP Memory Limit**: `512M`.
 - **Upload Max Size**: `32M`.
 - **Database**: MariaDB 10.11 LTS.
