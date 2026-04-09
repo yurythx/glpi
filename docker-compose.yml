@@ -42,6 +42,10 @@ services:
       - PHP_MEMORY_LIMIT=512M
       - PHP_POST_MAX_SIZE=32M
       - PHP_UPLOAD_MAX_FILESIZE=32M
+      - GLPI_DB_HOST=glpi-db
+      - GLPI_DB_NAME=${GLPI_DB_NAME}
+      - GLPI_DB_USER=${GLPI_DB_USER}
+      - GLPI_DB_PASSWORD=${GLPI_DB_PASSWORD}
     env_file:
       - ./.env
     volumes:
