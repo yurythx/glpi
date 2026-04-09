@@ -1,6 +1,0 @@
-.env
-glpi-prod/.env
-glpi-prod/mysql/
-glpi-prod/config/
-glpi-prod/files/
-glpi-prod/marketplace/
