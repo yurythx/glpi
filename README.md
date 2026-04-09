@@ -34,7 +34,7 @@ docker network create stack_network
 Certifique-se de que o arquivo `.env` na raiz contém as credenciais desejadas.
 
 ### 3. Iniciar os Containers
-Navegue até a pasta `glpi-prod` e execute:
+Na raiz do projeto, execute:
 ```powershell
 docker-compose up -d
 ```

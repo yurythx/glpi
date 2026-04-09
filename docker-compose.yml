@@ -14,7 +14,7 @@ services:
       - MARIADB_USER=${GLPI_DB_USER}
       - MARIADB_PASSWORD=${GLPI_DB_PASSWORD}
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./glpi-prod/mysql:/var/lib/mysql
     networks:
       - stack_network
     healthcheck:
@@ -43,11 +43,11 @@ services:
       - PHP_POST_MAX_SIZE=32M
       - PHP_UPLOAD_MAX_FILESIZE=32M
     env_file:
-      - ../.env
+      - ./.env
     volumes:
-      - ./config:/var/glpi/config
-      - ./files:/var/glpi/files
-      - ./marketplace:/var/www/glpi/marketplace
+      - ./glpi-prod/config:/var/glpi/config
+      - ./glpi-prod/files:/var/glpi/files
+      - ./glpi-prod/marketplace:/var/www/glpi/marketplace
     networks:
       - stack_network
     healthcheck:
