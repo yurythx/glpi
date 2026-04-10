@@ -85,4 +85,14 @@ Para garantir a segurança dos seus dados, faça cópia das pastas `mysql`, `con
 - **Log Rotation**: Máximo de 3 arquivos de 10MB para economizar disco.
 
 ---
-*Gerado por Antigravity AI*
+
+## ❓ Solução de Problemas (Troubleshooting)
+
+### Erro: "Access denied for user 'glpiuser'"
+Se o banco de dados recusar a senha mesmo ela estando correta no `.env`:
+1. O MariaDB grava a senha apenas no **primeiro boot**. Se você alterou o `.env` depois disso, a senha antiga continua valendo no banco.
+2. Para forçar a atualização (em instalações novas), pare o container e apague o conteúdo da pasta `glpi-prod/mysql/`, depois suba o container novamente.
+
+### Erro: "Permission Denied" em pastas
+Certifique-se de que as pastas `config`, `files` e `marketplace` pertencem ao usuário do webserver (UID 33):
+`sudo chown -R 33:33 glpi-prod/config glpi-prod/files glpi-prod/marketplace`
