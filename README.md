@@ -43,6 +43,13 @@ docker-compose up -d
 Abra seu navegador em:
 **URL:** [http://localhost:8080](http://localhost:8080)
 
+### 📝 Assistente de Instalação (Web Wizard)
+Durante a instalação no navegador, preencha os dados do banco exatamente assim:
+- **Servidor SQL**: `glpi-db`
+- **Usuário SQL**: `glpiuser`
+- **Senha SQL**: (A definida no seu `.env`)
+- **Banco de Dados**: Selecionar `glpidb` (já criado).
+
 ---
 
 ## 🔐 Credenciais Padrão do GLPI
