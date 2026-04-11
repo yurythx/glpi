@@ -45,7 +45,7 @@ Abra seu navegador em:
 
 ### 📝 Assistente de Instalação (Web Wizard)
 Durante a instalação no navegador, preencha os dados do banco exatamente assim:
-- **Servidor SQL**: `glpi-db`
+- **Servidor SQL (Hospedeiro)**: `glpi-db` (**IMPORTANTE**: Não use `localhost` ou o IP do servidor).
 - **Usuário SQL**: `glpiuser`
 - **Senha SQL**: (A definida no seu `.env`)
 - **Banco de Dados**: Selecionar `glpidb` (já criado).
